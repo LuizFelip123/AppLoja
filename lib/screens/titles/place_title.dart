@@ -45,9 +45,17 @@ class PlacesTitle extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 child: TextButton(
                   onPressed: () {
-                    launchUrl(Uri(
-                        path:
-                            "https://www.google.com/maps/search/?api=1&query=${documentSnapshot['lat']}, ${documentSnapshot['long']}"));
+                    launchUrl(
+                      Uri(
+                        scheme: 'https',
+                        host: 'www.google.com',
+                        path: '/maps/search/',
+                        queryParameters: {
+                          'api': '1',
+                          'query': '${documentSnapshot['lat']},${documentSnapshot['log']}'
+                        },
+                      ),
+                    );
                   },
                   child: Text(
                     "Ver no mapa",

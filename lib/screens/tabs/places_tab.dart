@@ -7,15 +7,20 @@ class PlacesTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<QuerySnapshot>(builder:(context, snapshot) {
-      if(snapshot.hasData){
-        return Center(child: CircularProgressIndicator(),);
-      }
-      return ListView(
-        children: snapshot.data!.docs.map((e){
-          return PlacesTitle(e);
-        }).toList(),
-      );
-    },  future: FirebaseFirestore.instance.collection("places").get(),);
+    return FutureBuilder<QuerySnapshot>(
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        return ListView(
+          children: snapshot.data!.docs.map((e) {
+            return PlacesTitle(e);
+          }).toList(),
+        );
+      },
+      future: FirebaseFirestore.instance.collection("places").get(),
+    );
   }
 }

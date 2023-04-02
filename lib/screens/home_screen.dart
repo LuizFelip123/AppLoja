@@ -33,9 +33,9 @@ class HomeScreen extends StatelessWidget {
         ),
         Scaffold(
           appBar: AppBar(
+            backgroundColor: Color.fromARGB(255, 238, 113, 129),
             title: Text("Lojas"),
             centerTitle: true,
-
           ),
           body: PlacesTab(),
           drawer: CustomDrawer(pageController: _pageController),
@@ -45,7 +45,6 @@ class HomeScreen extends StatelessWidget {
             title: Text("Meus Pedidos"),
             centerTitle: true,
             backgroundColor: Color.fromARGB(255, 238, 113, 129),
-
           ),
           drawer: CustomDrawer(pageController: _pageController),
           body: OrderTab(),
